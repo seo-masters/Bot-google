@@ -2,18 +2,24 @@
   "name": "proyectobotazteca",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "./src/main.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./src/main.js",
+    "dev": "nodemon ./src/main.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "node-scrapy": "^0.5.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "node-scrapy": "^0.3.1",
     "puppeteer": "^21.3.8",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-recaptcha": "^3.6.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }

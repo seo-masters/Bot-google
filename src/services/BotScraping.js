@@ -4,11 +4,11 @@ import RecaptchaPlugin from 'puppeteer-extra-plugin-recaptcha';
 
 
 
-async function OpenWeb(){
+ export default async function OpenWeb(getPaymet){
     // await browser.close();
     const browser = await puppeteer.launch({
-        headless: false,
-        slowMo:200
+        headless: true,
+        slowMo:25
 
     });
     const page = await browser.newPage();
@@ -17,21 +17,33 @@ async function OpenWeb(){
     await page.goto('https://www.google.com');
 
     await page.click('.gLFyf');
-    await page.keyboard.type("facebook");
+    await page.keyboard.type(getPaymet);
     await page.keyboard.press("Enter");
     
     
-    const page2 = await browser.newPage();
-    await page2.setViewport({width: 1080, height: 1024});
-    await page2.goto('https://www.google.com');
+    // const page2 = await browser.newPage();
+    // await page2.setViewport({width: 1260, height: 1920});
+    // await page2.goto('https://www.google.com');
     
-    await page2.click('.gLFyf');
-    await page2.keyboard.type("mercantil");
-    await page2.keyboard.press("Enter");
-    await page.close();
+    // await page2.click('.gLFyf');
+    // await page2.keyboard.type(getPaymet);
+    // await page2.keyboard.press("Enter");
+    // await page.waitForSelector("#mh_tsuid_71 > div > div > div.SPZz6b > h2 > span");
+    // const ruta=await page2.waitForSelector(".#kp-wp-tab-overview > div.TzHB6b.cLjAic.LMRCfc > div > div > div > div > div > div:nth-child(5) > div > div > div > span.LrzXr");
+    // console.log(ruta)
+// let Prueba= page2.evaluate(async () => {
+//     console.log("hola probando");
+//     //    let b= await document.querySelectorAll("#mh_tsuid_57 > div > div > div.SPZz6b > h2 > span");
+//     //    console.log(b);
+//     return 1+1
+//      });
+    // console.log(three);
+    
+    // await page.close();
+    await browser.close();
+    return "datos obtenidos"
     // await page.close();
     // getInfPayme('https://www.mercadolibre.com.co/');
-    // await browser.close();
     
 // puppeteer.use(
 //   RecaptchaPlugin({
@@ -54,7 +66,7 @@ async function OpenWeb(){
 //       page.click(`#recaptcha-demo-submit`)
 //     ])
 //     await page.screenshot({ path: 'response.png', fullPage: true })
-//     // await browser.close()
+//     // await browser.close();
 //   })
     
     
@@ -66,7 +78,10 @@ async function OpenWeb(){
 
 }
 
-OpenWeb();
+
+
+
+
 
 
 
